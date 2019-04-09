@@ -15,8 +15,6 @@ class Script
     url = 'https://techcrunch.com/' + arg + '/'
     doc = parse_html(url)
 
-
-    # p doc.css('.content')
     doc.css('.content').css('.post-block').each do |node|
 
       # タイトル取得
