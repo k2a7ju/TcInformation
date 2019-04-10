@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TcInfoEndpointService {
 
-	public ResponseEntity<String> run() {
+	public ResponseEntity<String> exec() {
 		ResponseEntity<String> responseEntity = new ResponseEntity<String>("sample",HttpStatus.ACCEPTED);
 
 		return responseEntity;

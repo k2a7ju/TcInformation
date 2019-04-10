@@ -15,7 +15,7 @@ public class TcInfoEndpoint {
 
 	@RequestMapping(path = "/**", method = RequestMethod.GET)
     public ResponseEntity<String> getController() {
-        ResponseEntity<String> response = this.endpointService.run();
+        ResponseEntity<String> response = this.endpointService.exec();
         return response;
     }
 
