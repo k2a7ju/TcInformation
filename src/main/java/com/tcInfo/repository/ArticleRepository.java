@@ -6,10 +6,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.tcInfo.entity.ArticleEntity;
 
+@Repository
 public class ArticleRepository {
 	public List<ArticleEntity> read(String fileName){
 		Reader reader = null;
