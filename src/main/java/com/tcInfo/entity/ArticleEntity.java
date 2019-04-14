@@ -6,14 +6,14 @@ public class ArticleEntity {
 
 	// タイトル 取得
 	@CsvBindByPosition(position = 0, required = true)
-	private String title;
+	public String title;
 
 	// 本文 取得
 	@CsvBindByPosition(position = 1, required = true)
-	private String content;
+	public String content;
 
 	// URL 取得
 	@CsvBindByPosition(position = 2, required = true)
-	private String url;
+	public String url;
 
 }
