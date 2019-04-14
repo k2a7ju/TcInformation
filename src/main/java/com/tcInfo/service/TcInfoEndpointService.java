@@ -32,13 +32,14 @@ public class TcInfoEndpointService extends EndpointService {
 
 		TcInfoJsonBean jsonBean = this.getJsonObject(jsonText);
 
+		// TODO: jsonBean　バリデーション処理
+
 		String lang = jsonBean.getLang();
 		String category = jsonBean.getCategory();
 
-		System.out.println(category);
+		String command = scriptService.buildCommand(category);
+		String commandResult = scriptService.execCommand(command);
 
-//		String commandResult = scriptService.execCommand(command);
-//		System.out.println(commandResult);
 		ResponseEntity<String> responseEntity = new ResponseEntity<String>(requestBean.getBody(),HttpStatus.ACCEPTED);
 
 		return responseEntity;
