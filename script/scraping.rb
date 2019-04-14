@@ -8,10 +8,10 @@ require "csv"
 class Script
   def self.scraping arg
     if !validate(arg)
-      p 'args error'
+      p 'error'
       exit
     end
-    csv = CSV.open('output.csv','w')
+    csv = CSV.open('/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv','w')
     url = 'https://techcrunch.com/' + arg + '/'
     doc = parse_html(url)
 
@@ -30,6 +30,7 @@ class Script
 
     end
     csv.close
+    p 'success'
 
   end
 
