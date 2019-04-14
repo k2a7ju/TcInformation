@@ -18,6 +18,11 @@ import com.tcInfo.bean.TcInfoJsonBean;
 import com.tcInfo.entity.ArticleEntity;
 import com.tcInfo.repository.ArticleRepository;
 
+/**
+ * Techcrunch の情報取得用 Endpoint クラス
+ *
+ * @author kaju
+ */
 @Service
 public class TcInfoEndpointService extends EndpointService {
 

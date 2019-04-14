@@ -7,6 +7,11 @@ import java.io.InputStreamReader;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * スクリプト実行 service クラス
+ *
+ * @author kaju
+ */
 @Service
 public class ScriptService {
 

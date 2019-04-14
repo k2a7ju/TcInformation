@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.tcInfo.entity.ArticleEntity;
 
+/**
+ * ArticleList の Bean クラス
+ *
+ * @author kaju
+ *
+ */
 public class ArticleListBean {
 	public List<ArticleEntity> article;
 

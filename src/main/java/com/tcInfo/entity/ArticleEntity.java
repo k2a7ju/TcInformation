@@ -2,6 +2,11 @@ package com.tcInfo.entity;
 
 import com.opencsv.bean.CsvBindByPosition;
 
+/**
+ * Article の Entity クラス
+ *
+ * @author kaju
+ */
 public class ArticleEntity {
 
 	// タイトル 取得

@@ -1,5 +1,10 @@
 package com.tcInfo.bean;
 
+/**
+ * リクエストで渡される JSON の Bean クラス
+ *
+ * @author kaju
+ */
 public class TcInfoJsonBean {
 	private String lang;
 	private String category;
