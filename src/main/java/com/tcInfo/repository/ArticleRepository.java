@@ -16,7 +16,6 @@ import com.tcInfo.entity.ArticleEntity;
  * Article の Repository クラス
  *
  * @author kaju
- *
  */
 @Repository
 public class ArticleRepository {
