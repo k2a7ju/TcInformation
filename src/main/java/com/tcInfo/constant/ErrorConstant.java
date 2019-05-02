@@ -20,4 +20,9 @@ public class ErrorConstant {
 	 * 記事ファイルが存在しない場合に出力するメッセージ
 	 */
 	public static final String FILE_NOT_FOUND = "File not found";
+
+	/**
+	 * requestBean が null
+	 */
+	public static final String REQUEST_BEAN_NULL = "requestBean is null";
 }

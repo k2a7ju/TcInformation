@@ -15,7 +15,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tcInfo.bean.ArticleListBean;
 import com.tcInfo.bean.RequestBean;
 import com.tcInfo.bean.TcInfoJsonBean;
+import com.tcInfo.constant.ErrorConstant;
 import com.tcInfo.entity.ArticleEntity;
+import com.tcInfo.error.TcInfoException;
 import com.tcInfo.repository.ArticleRepository;
 
 /**
@@ -34,8 +36,9 @@ public class TcInfoEndpointService extends EndpointService {
 
 	public ResponseEntity<String> exec(RequestBean requestBean) {
 
+		// requestBean が null のときエラー
 		if (requestBean == null) {
-			// TODO: Exception requestBean が null
+			throw new TcInfoException(ErrorConstant.REQUEST_BEAN_NULL);
 		}
 		String jsonText = requestBean.getBody();
 
