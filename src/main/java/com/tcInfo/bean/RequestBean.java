@@ -7,12 +7,24 @@ package com.tcInfo.bean;
  */
 public class RequestBean {
 
+	/**
+	 * リクエストヘッダに含まれている ID
+	 */
 	private String id;
 
+	/**
+	 * リクエストヘッダに含まれている パスワード
+	 */
 	private String password;
 
+	/**
+	 * リクエストヘッダに含まれている content-type
+	 */
 	private String contentType;
 
+	/**
+	 * リクエストボディ
+	 */
 	private String body;
 
 	/**

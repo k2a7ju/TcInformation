@@ -10,13 +10,14 @@ import org.springframework.stereotype.Repository;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.tcInfo.constant.ErrorConstant;
 import com.tcInfo.entity.ArticleEntity;
+import com.tcInfo.error.TcInfoException;
 
 /**
  * Article の Repository クラス
  *
  * @author kaju
- *
  */
 @Repository
 public class ArticleRepository {
@@ -25,7 +26,7 @@ public class ArticleRepository {
 		try {
 			reader = Files.newBufferedReader(Paths.get(fileName));
 		} catch (IOException e) {
-			// TODO: Exception: throw ファイルが存在しません。
+			throw new TcInfoException(ErrorConstant.FILE_NOT_FOUND,e);
 		}
         CsvToBean<ArticleEntity> csvToBean = new CsvToBeanBuilder<ArticleEntity>(reader).withType(ArticleEntity.class).build();
         return csvToBean.parse();

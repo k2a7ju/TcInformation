@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 
 import org.springframework.stereotype.Service;
 
+import com.tcInfo.constant.ErrorConstant;
+import com.tcInfo.error.TcInfoException;
+
 /**
  * スクリプト実行 service クラス
  *
@@ -24,7 +27,7 @@ public class ScriptService {
 	        InputStream inputStream = process.getInputStream();
 	        result = this.inputStreemToString(inputStream);
 	    } catch (IOException | InterruptedException ex) {
-	    	// TODO: Exception: 実行時エラー
+	    	throw new TcInfoException(ErrorConstant.COMMAND_EXEC_ERROR,ex);
 	    }
 		return result;
 	}
