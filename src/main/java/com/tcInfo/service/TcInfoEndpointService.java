@@ -58,14 +58,17 @@ public class TcInfoEndpointService extends EndpointService {
 		String lang = jsonBean.getLang();
 		String category = jsonBean.getCategory();
 
+		// command を生成し、実行
 		String command = scriptService.buildCommand(category);
 		String commandResult = scriptService.execCommand(command);
 
+		// 結果ファイル読み込み
 		List<ArticleEntity> entityList = articleRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
 
+		// レスポンス用の JSON を生成
 		String json = this.toJson(entityList);
 
-
+		// レスポンスを生成
 		ResponseEntity<String> responseEntity = new ResponseEntity<String>(json,HttpStatus.OK);
 
 		return responseEntity;
