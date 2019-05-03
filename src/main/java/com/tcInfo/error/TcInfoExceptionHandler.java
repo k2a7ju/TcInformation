@@ -33,7 +33,7 @@ public class TcInfoExceptionHandler extends ResponseEntityExceptionHandler{
 		map.put("message", message);
 
 		String json = "";
-		System.out.print("aaa");
+
 		try {
 			json = new ObjectMapper().writeValueAsString(map);
 		} catch(Exception e) {
