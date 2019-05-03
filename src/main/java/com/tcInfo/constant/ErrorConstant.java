@@ -25,4 +25,14 @@ public class ErrorConstant {
 	 * requestBean が null
 	 */
 	public static final String REQUEST_BEAN_NULL = "requestBean is null";
+
+	/**
+	 * JSON で lang のキーが存在しない
+	 */
+	public static final String LANG_NOT_EXIST = "Request parameter of lang is not exist";
+
+	/**
+	 * JSON で category のキーが存在しない
+	 */
+	public static final String CATEGORY_NOT_EXIST = "Request parameter of category is not exist";
 }

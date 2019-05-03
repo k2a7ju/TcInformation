@@ -3,6 +3,7 @@ package com.tcInfo.service;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +45,15 @@ public class TcInfoEndpointService extends EndpointService {
 
 		TcInfoJsonBean jsonBean = this.getJsonObject(jsonText);
 
-		// TODO: jsonBean　バリデーション処理
+		// JSON に lang のキーが存在しない
+		if(StringUtils.isEmpty(jsonBean.getLang())) {
+			throw new TcInfoException(ErrorConstant.LANG_NOT_EXIST);
+		}
+
+		// JSON に category のキーが存在しない
+		if(StringUtils.isEmpty(jsonBean.getCategory())) {
+			throw new TcInfoException(ErrorConstant.CATEGORY_NOT_EXIST);
+		}
 
 		String lang = jsonBean.getLang();
 		String category = jsonBean.getCategory();
