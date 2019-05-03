@@ -1,6 +1,7 @@
 package com.tcInfo.error;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,7 +28,8 @@ public class TcInfoExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<String> TcInfoExceptionHandling(HttpServletRequest request, TcInfoException exception){
 		String message = exception.getMessage();
 
-		HashMap<String,String> map = new HashMap<String,String>();
+		HashMap<String,String> map = new LinkedHashMap<String,String>();
+		map.put("status","ERROR");
 		map.put("message", message);
 
 		String json = "";
