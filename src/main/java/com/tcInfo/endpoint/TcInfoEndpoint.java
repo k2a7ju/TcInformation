@@ -19,4 +19,11 @@ public class TcInfoEndpoint {
         ResponseEntity<String> response = this.endpointService.exec(requestBean);
         return response;
     }
+
+
+	@RequestMapping(path = "/tcinfo/updateArticle", method = RequestMethod.GET)
+    public ResponseEntity<String> getEndpointService() {
+        ResponseEntity<String> response = this.endpointService.update();
+        return response;
+    }
 }
