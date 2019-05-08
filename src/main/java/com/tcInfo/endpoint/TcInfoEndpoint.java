@@ -14,6 +14,9 @@ public class TcInfoEndpoint {
 	@Autowired
     TcInfoEndpointService endpointService;
 
+	/*
+	 * 記事を取得するエンドポイント
+	 */
 	@RequestMapping(path = "/tcinfo/article/get", method = RequestMethod.POST)
     public ResponseEntity<String> getEndpointService(RequestBean requestBean) {
         ResponseEntity<String> response = this.endpointService.exec(requestBean);
@@ -21,8 +24,11 @@ public class TcInfoEndpoint {
     }
 
 
-	@RequestMapping(path = "/tcinfo/article/update", method = RequestMethod.GET)
-    public ResponseEntity<String> getEndpointService() {
+	/*
+	 * 記事を取得するエンドポイント
+	 */
+	@RequestMapping(path = "/tcinfo/article/update", method = RequestMethod.POST)
+    public ResponseEntity<String> updateEndpointService(RequestBean requestBean) {
         ResponseEntity<String> response = this.endpointService.update();
         return response;
     }
