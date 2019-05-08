@@ -1,6 +1,7 @@
 package com.tcInfo.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -35,7 +36,7 @@ public class TcInfoEndpointService extends EndpointService {
 	@Autowired
 	ScriptService scriptService;
 
-	public ResponseEntity<String> exec(RequestBean requestBean) {
+	public ResponseEntity<String> get(RequestBean requestBean) {
 
 		// requestBean が null のときエラー
 		if (requestBean == null) {
@@ -72,6 +73,23 @@ public class TcInfoEndpointService extends EndpointService {
 		ResponseEntity<String> responseEntity = new ResponseEntity<String>(json,HttpStatus.OK);
 
 		return responseEntity;
+	}
+	public ResponseEntity<String> update(){
+		List<String> categoryList = new ArrayList<String>() {
+			{
+				add("startups");
+				add("apps");
+				add("video");
+			}
+		};
+		// command を生成し、実行
+		for(String category : categoryList) {
+			String command = scriptService.buildCommand(category);
+			String commandResult = scriptService.execCommand(command);
+			List<ArticleEntity> entityList = articleRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
+
+		}
+		return null;
 	}
 
 	private TcInfoJsonBean getJsonObject(String jsonText) {

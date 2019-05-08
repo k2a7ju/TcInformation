@@ -19,7 +19,7 @@ public class TcInfoEndpoint {
 	 */
 	@RequestMapping(path = "/tcinfo/article/get", method = RequestMethod.POST)
     public ResponseEntity<String> getEndpointService(RequestBean requestBean) {
-        ResponseEntity<String> response = this.endpointService.exec(requestBean);
+        ResponseEntity<String> response = this.endpointService.get(requestBean);
         return response;
     }
 
