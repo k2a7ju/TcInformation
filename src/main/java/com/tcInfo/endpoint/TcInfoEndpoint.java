@@ -14,14 +14,14 @@ public class TcInfoEndpoint {
 	@Autowired
     TcInfoEndpointService endpointService;
 
-	@RequestMapping(path = "/tcinfo/getArticle", method = RequestMethod.POST)
+	@RequestMapping(path = "/tcinfo/article/get", method = RequestMethod.POST)
     public ResponseEntity<String> getEndpointService(RequestBean requestBean) {
         ResponseEntity<String> response = this.endpointService.exec(requestBean);
         return response;
     }
 
 
-	@RequestMapping(path = "/tcinfo/updateArticle", method = RequestMethod.GET)
+	@RequestMapping(path = "/tcinfo/article/update", method = RequestMethod.GET)
     public ResponseEntity<String> getEndpointService() {
         ResponseEntity<String> response = this.endpointService.update();
         return response;
