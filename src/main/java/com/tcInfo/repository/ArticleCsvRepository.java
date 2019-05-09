@@ -12,7 +12,6 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.tcInfo.constant.ErrorConstant;
 import com.tcInfo.entity.ArticleCsvEntity;
-import com.tcInfo.entity.ArticleEntity;
 import com.tcInfo.error.TcInfoException;
 
 /**
@@ -29,7 +28,7 @@ public class ArticleCsvRepository {
 		} catch (IOException e) {
 			throw new TcInfoException(ErrorConstant.FILE_NOT_FOUND,e);
 		}
-        CsvToBean<ArticleCsvEntity> csvToBean = new CsvToBeanBuilder<ArticleEntity>(reader).withType(ArticleEntity.class).build();
+        CsvToBean<ArticleCsvEntity> csvToBean = new CsvToBeanBuilder<ArticleCsvEntity>(reader).withType(ArticleCsvEntity.class).build();
         return csvToBean.parse();
     }
 }
