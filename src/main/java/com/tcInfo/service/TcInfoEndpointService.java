@@ -18,9 +18,9 @@ import com.tcInfo.bean.ArticleListBean;
 import com.tcInfo.bean.RequestBean;
 import com.tcInfo.bean.TcInfoJsonBean;
 import com.tcInfo.constant.ErrorConstant;
-import com.tcInfo.entity.ArticleEntity;
+import com.tcInfo.entity.ArticleCsvEntity;
 import com.tcInfo.error.TcInfoException;
-import com.tcInfo.repository.ArticleRepository;
+import com.tcInfo.repository.ArticleCsvRepository;
 
 /**
  * Techcrunch の情報取得用 Endpoint クラス
@@ -31,7 +31,7 @@ import com.tcInfo.repository.ArticleRepository;
 public class TcInfoEndpointService extends EndpointService {
 
 	@Autowired
-	ArticleRepository articleRepository;
+	ArticleCsvRepository articleCsvRepository;
 
 	@Autowired
 	ScriptService scriptService;
@@ -64,7 +64,7 @@ public class TcInfoEndpointService extends EndpointService {
 		String commandResult = scriptService.execCommand(command);
 
 		// 結果ファイル読み込み
-		List<ArticleEntity> entityList = articleRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
+		List<ArticleCsvEntity> entityList = articleCsvRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
 
 		// レスポンス用の JSON を生成
 		String json = this.toJson(entityList);
@@ -86,7 +86,7 @@ public class TcInfoEndpointService extends EndpointService {
 		for(String category : categoryList) {
 			String command = scriptService.buildCommand(category);
 			String commandResult = scriptService.execCommand(command);
-			List<ArticleEntity> entityList = articleRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
+			List<ArticleCsvEntity> entityList = articleCsvRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
 
 		}
 		return null;
@@ -108,7 +108,7 @@ public class TcInfoEndpointService extends EndpointService {
 
 		return jsonBean;
 	}
-	private String toJson(List<ArticleEntity> entityList) {
+	private String toJson(List<ArticleCsvEntity> entityList) {
 		String json = "";
 		ArticleListBean articleListBean = new ArticleListBean(entityList);
 		try {

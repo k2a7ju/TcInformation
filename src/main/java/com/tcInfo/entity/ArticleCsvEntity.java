@@ -7,7 +7,7 @@ import com.opencsv.bean.CsvBindByPosition;
  *
  * @author kaju
  */
-public class ArticleEntity {
+public class ArticleCsvEntity {
 
 	// タイトル 取得
 	@CsvBindByPosition(position = 0, required = true)
