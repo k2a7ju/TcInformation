@@ -10,9 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tcInfo.bean.ArticleListBean;
 import com.tcInfo.bean.RequestBean;
@@ -98,12 +96,9 @@ public class TcInfoEndpointService extends EndpointService {
 		TcInfoJsonBean jsonBean = null;
 		try {
 			jsonBean = objectMapper.readValue(jsonText, TcInfoJsonBean.class);
-		} catch (JsonParseException e) {
-			// TODO: Exception
-		} catch (JsonMappingException e) {
-			// TODO: Exception
 		} catch (IOException e) {
 			// TODO: Exception
+			throw new TcInfoException(ErrorConstant.FAILED_CONVERT_JSON,e);
 		}
 
 		return jsonBean;
