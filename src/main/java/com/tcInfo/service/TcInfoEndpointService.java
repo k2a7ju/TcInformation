@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tcInfo.bean.ArticleListBean;
 import com.tcInfo.bean.RequestBean;
 import com.tcInfo.bean.TcInfoJsonBean;
+import com.tcInfo.bean.TcInfoPropertiesBean;
 import com.tcInfo.constant.ErrorConstant;
 import com.tcInfo.entity.ArticleCsvEntity;
 import com.tcInfo.error.TcInfoException;
@@ -33,6 +34,9 @@ public class TcInfoEndpointService extends EndpointService {
 
 	@Autowired
 	ScriptService scriptService;
+
+	@Autowired
+	TcInfoPropertiesBean tcInfoPropertiesBean;
 
 	public ResponseEntity<String> get(RequestBean requestBean) {
 
@@ -62,7 +66,7 @@ public class TcInfoEndpointService extends EndpointService {
 		String commandResult = scriptService.execCommand(command);
 
 		// 結果ファイル読み込み
-		List<ArticleCsvEntity> entityList = articleCsvRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
+		List<ArticleCsvEntity> entityList = articleCsvRepository.read(tcInfoPropertiesBean.getCsvPath());
 
 		// レスポンス用の JSON を生成
 		String json = this.toJson(entityList);
@@ -84,7 +88,7 @@ public class TcInfoEndpointService extends EndpointService {
 		for(String category : categoryList) {
 			String command = scriptService.buildCommand(category);
 			String commandResult = scriptService.execCommand(command);
-			List<ArticleCsvEntity> entityList = articleCsvRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
+			List<ArticleCsvEntity> entityList = articleCsvRepository.read(tcInfoPropertiesBean.getCsvPath());
 		}
 		return null;
 	}
