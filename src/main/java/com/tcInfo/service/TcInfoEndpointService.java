@@ -85,7 +85,6 @@ public class TcInfoEndpointService extends EndpointService {
 			String command = scriptService.buildCommand(category);
 			String commandResult = scriptService.execCommand(command);
 			List<ArticleCsvEntity> entityList = articleCsvRepository.read("/Users/kaju/WorkSpace/eclipse_work/Tcinformation/script/output.csv");
-
 		}
 		return null;
 	}
@@ -97,7 +96,6 @@ public class TcInfoEndpointService extends EndpointService {
 		try {
 			jsonBean = objectMapper.readValue(jsonText, TcInfoJsonBean.class);
 		} catch (IOException e) {
-			// TODO: Exception
 			throw new TcInfoException(ErrorConstant.FAILED_CONVERT_JSON,e);
 		}
 
