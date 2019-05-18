@@ -1,24 +1,32 @@
 package com.tcInfo.entity;
 
-import com.opencsv.bean.CsvBindByPosition;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
+/*
  * Article の Entity クラス
  *
  * @author kaju
  */
+@Entity
+@Table(name="article")
 public class ArticleEntity {
 
-	// タイトル 取得
-	@CsvBindByPosition(position = 0, required = true)
-	public String title;
+	@Id
+	private int id;
 
-	// 本文 取得
-	@CsvBindByPosition(position = 1, required = true)
-	public String content;
+	@Column(name = "title", nullable = false, length = 255)
+	private String title;
 
-	// URL 取得
-	@CsvBindByPosition(position = 2, required = true)
-	public String url;
+	@Column(name = "content", nullable = false, length = 255)
+	private String content;
+
+	@Column(name = "url", nullable = false, length = 255)
+	private String url;
+
+	@Column(name = "category", nullable = false, length = 255)
+	private String category;
 
 }

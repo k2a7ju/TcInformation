@@ -10,5 +10,6 @@ import com.tcInfo.bean.RequestBean;
  * @author kaju
  */
 public abstract class EndpointService {
-	abstract ResponseEntity<String> exec(RequestBean requestBean);
+	abstract ResponseEntity<String> get(RequestBean requestBean);
+	abstract ResponseEntity<String> update();
 }

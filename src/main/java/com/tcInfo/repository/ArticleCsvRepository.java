@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.tcInfo.constant.ErrorConstant;
-import com.tcInfo.entity.ArticleEntity;
+import com.tcInfo.entity.ArticleCsvEntity;
 import com.tcInfo.error.TcInfoException;
 
 /**
@@ -20,15 +20,15 @@ import com.tcInfo.error.TcInfoException;
  * @author kaju
  */
 @Repository
-public class ArticleRepository {
-	public List<ArticleEntity> read(String fileName){
+public class ArticleCsvRepository {
+	public List<ArticleCsvEntity> read(String fileName){
 		Reader reader = null;
 		try {
 			reader = Files.newBufferedReader(Paths.get(fileName));
 		} catch (IOException e) {
 			throw new TcInfoException(ErrorConstant.FILE_NOT_FOUND,e);
 		}
-        CsvToBean<ArticleEntity> csvToBean = new CsvToBeanBuilder<ArticleEntity>(reader).withType(ArticleEntity.class).build();
+        CsvToBean<ArticleCsvEntity> csvToBean = new CsvToBeanBuilder<ArticleCsvEntity>(reader).withType(ArticleCsvEntity.class).build();
         return csvToBean.parse();
     }
 }

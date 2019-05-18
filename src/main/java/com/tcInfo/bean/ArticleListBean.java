@@ -2,7 +2,7 @@ package com.tcInfo.bean;
 
 import java.util.List;
 
-import com.tcInfo.entity.ArticleEntity;
+import com.tcInfo.entity.ArticleCsvEntity;
 
 /**
  * ArticleList の Bean クラス
@@ -11,9 +11,9 @@ import com.tcInfo.entity.ArticleEntity;
  *
  */
 public class ArticleListBean {
-	public List<ArticleEntity> article;
+	public List<ArticleCsvEntity> article;
 
-	public ArticleListBean(List<ArticleEntity> list) {
+	public ArticleListBean(List<ArticleCsvEntity> list) {
 		this.article = list;
 	}
 

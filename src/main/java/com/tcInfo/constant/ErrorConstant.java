@@ -35,4 +35,9 @@ public class ErrorConstant {
 	 * JSON で category のキーが存在しない
 	 */
 	public static final String CATEGORY_NOT_EXIST = "Request parameter of category is not exist";
+
+	/**
+	 * JSON Object 変換に失敗
+	 */
+	public static final String FAILED_CONVERT_JSON = "Failed to convert to JSON object";
 }
