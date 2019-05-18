@@ -1,7 +1,6 @@
 package com.tcInfo.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -77,13 +76,8 @@ public class TcInfoEndpointService extends EndpointService {
 		return responseEntity;
 	}
 	public ResponseEntity<String> update(){
-		List<String> categoryList = new ArrayList<String>() {
-			{
-				add("startups");
-				add("apps");
-				add("video");
-			}
-		};
+		List<String> categoryList = this.tcInfoPropertiesBean.getCategoryList();
+
 		// command を生成し、実行
 		for(String category : categoryList) {
 			String command = scriptService.buildCommand(category);
