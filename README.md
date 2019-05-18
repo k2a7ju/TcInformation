@@ -10,8 +10,4 @@
 `ruby -v`  
 バージョンが表示されていれば OK
 
-4. 単体テストを実行
-
-## サンプルのリクエスト
-ターミナルから下記を実行  
-`curl -v -X POST localhost:18080/tcinfo/getArticle -H "content-type:application/json" -d '{"lang":"ja","category":"apps"}'`
+4. `tcinfo.properties` の CSV 書き出し用ディレクトリパスを適宜変更
