@@ -17,8 +17,10 @@ import com.tcInfo.bean.TcInfoJsonBean;
 import com.tcInfo.bean.TcInfoPropertiesBean;
 import com.tcInfo.constant.ErrorConstant;
 import com.tcInfo.entity.ArticleCsvEntity;
+import com.tcInfo.entity.ArticleEntity;
 import com.tcInfo.error.TcInfoException;
 import com.tcInfo.repository.ArticleCsvRepository;
+import com.tcInfo.repository.ArticleRepository;
 
 /**
  * Techcrunch の情報取得用 Endpoint クラス
@@ -30,6 +32,9 @@ public class TcInfoEndpointService extends EndpointService {
 
 	@Autowired
 	ArticleCsvRepository articleCsvRepository;
+
+	@Autowired
+	ArticleRepository articleRepository;
 
 	@Autowired
 	ScriptService scriptService;
@@ -83,6 +88,9 @@ public class TcInfoEndpointService extends EndpointService {
 			String command = scriptService.buildCommand(category);
 			String commandResult = scriptService.execCommand(command);
 			List<ArticleCsvEntity> entityList = articleCsvRepository.read(tcInfoPropertiesBean.getCsvPath());
+			for(ArticleCsvEntity entity : entityList) {
+				this.articleRepository.save(new ArticleEntity(entity.title,entity.content,entity.url,category));
+			}
 		}
 		return null;
 	}

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -40,5 +41,37 @@ public class ArticleEntity {
 	@CreatedDate
 	@Column(name = "created", nullable = false)
 	public Date created;
+
+	public ArticleEntity(String title, String content, String url, String category) {
+		this.setTitle(title);
+		this.setContent(content);
+		this.setUrl(url);
+		this.setCategory(category);
+	}
+
+	@PrePersist
+	public void onPrePersist() {
+		this.setCreated(new Date());
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public void setCreated(Date date) {
+		this.created = date;
+	}
 
 }
