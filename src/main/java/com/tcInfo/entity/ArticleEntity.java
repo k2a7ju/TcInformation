@@ -1,11 +1,15 @@
 package com.tcInfo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
 
 /*
  * Article の Entity クラス
@@ -18,8 +22,8 @@ public class ArticleEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
+	@Column(name="article_id")
+	private int articleId;
 
 	@Column(name = "title", nullable = false, length = 255)
 	private String title;
@@ -32,5 +36,9 @@ public class ArticleEntity {
 
 	@Column(name = "category", nullable = false, length = 255)
 	private String category;
+
+	@CreatedDate
+	@Column(name = "created", nullable = false)
+	public Date created;
 
 }
